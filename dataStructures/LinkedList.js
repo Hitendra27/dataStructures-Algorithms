@@ -123,6 +123,18 @@ class LinkedList{
         return -1
     }
 
+    reverse() {
+        let prev = null
+        let curr = this.head
+        while(curr) {
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next  
+        }
+        this.head = prev
+    }
+
     print() {
         if(this.isEmpty()) {
             console.log('List is empty')
@@ -146,18 +158,15 @@ console.log('List size ', list.getSize())
 list.print()
 
 list.insert(10, 0)
-list.print()
+
 
 list.insert(20, 0)
-list.print()
+
 
 list.insert(30, 1)
-list.print()
 
 list.insert(40, 2)
 list.print()
-console.log(list.getSize())
 
-console.log(list.search(20))
-
-console.log(list.search(70))
+list.reverse()
+list.print()
